@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtaniAppWeb2", "OtaniAppWeb2\OtaniAppWeb2.csproj", "{8C899305-297A-437E-AC24-FE6D98029A94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{E8499E24-674C-43C4-AECA-36C5FCB853CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio", "negocio\negocio.csproj", "{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C899305-297A-437E-AC24-FE6D98029A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C899305-297A-437E-AC24-FE6D98029A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C899305-297A-437E-AC24-FE6D98029A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C899305-297A-437E-AC24-FE6D98029A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8499E24-674C-43C4-AECA-36C5FCB853CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8499E24-674C-43C4-AECA-36C5FCB853CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8499E24-674C-43C4-AECA-36C5FCB853CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8499E24-674C-43C4-AECA-36C5FCB853CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BA1327B-5726-4E4F-8E44-6E8831B2E55B}
+	EndGlobalSection
+EndGlobal
