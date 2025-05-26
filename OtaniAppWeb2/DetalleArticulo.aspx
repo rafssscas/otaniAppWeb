@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetalleProducto.aspx.cs" Inherits="OtaniAppWeb2.DetalleProducto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetalleArticulo.aspx.cs" Inherits="OtaniAppWeb2.DetalleProducto" %>
 
 <!DOCTYPE html>
 
