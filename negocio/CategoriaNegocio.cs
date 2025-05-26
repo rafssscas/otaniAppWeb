@@ -41,5 +41,93 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregar(Categoria nueva)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@desc)");
+                datos.setearParametro("@desc", nueva.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar categoría", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Categoria categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @desc WHERE Id = @id");
+                datos.setearParametro("@desc", categoria.Descripcion);
+                datos.setearParametro("@id", categoria.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar categoría", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar categoría", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public List<Categoria> filtrar(string descripcion)
+        {
+            List<Categoria> lista = new List<Categoria>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("SELECT Id, Descripcion FROM CATEGORIAS WHERE Descripcion LIKE @desc");
+                datos.setearParametro("@desc", $"%{descripcion}%");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Categoria categoria = new Categoria();
+                    categoria.Id = (int)datos.Lector["Id"];
+                    categoria.Descripcion = datos.Lector["Descripcion"] as string;
+                    lista.Add(categoria);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al filtrar categorías", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

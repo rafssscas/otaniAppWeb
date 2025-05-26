@@ -80,7 +80,7 @@ namespace negocio
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
                 datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@imagenUrl", nuevo.ImagenUrl);
-                datos.setearParametro("@precio", nuevo.Precio);
+                //datos.setearParametro("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
 
             }

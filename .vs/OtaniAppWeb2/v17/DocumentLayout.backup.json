@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|c:\\users\\rafae\\desktop\\proyectos\\otaniappweb2\\negocio\\usernegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|solutionrelative:negocio\\usernegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|solutionrelative:negocio\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\marcanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|solutionrelative:negocio\\marcanegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\categorianegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|solutionrelative:negocio\\categorianegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DD97E2-4C05-4B32-A9DB-C6C4EE31C5D6}|negocio\\negocio.csproj|solutionrelative:negocio\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 585,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,67 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\UserNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\UserNegocio.cs",
-              "ToolTip": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\UserNegocio.cs",
-              "RelativeToolTip": "negocio\\UserNegocio.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T05:08:25.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CategoriaNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\CategoriaNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\CategoriaNegocio.cs",
-              "ToolTip": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\CategoriaNegocio.cs",
-              "RelativeToolTip": "negocio\\CategoriaNegocio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T05:05:54.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MarcaNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\MarcaNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\MarcaNegocio.cs",
-              "ToolTip": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\MarcaNegocio.cs",
-              "RelativeToolTip": "negocio\\MarcaNegocio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T05:05:30.741Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ArticuloNegocio.cs",
-              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\ArticuloNegocio.cs",
-              "RelativeDocumentMoniker": "negocio\\ArticuloNegocio.cs",
-              "ToolTip": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\ArticuloNegocio.cs",
-              "RelativeToolTip": "negocio\\ArticuloNegocio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T05:03:59.022Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AccesoDatos.cs",
-              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\AccesoDatos.cs",
-              "RelativeDocumentMoniker": "negocio\\AccesoDatos.cs",
-              "ToolTip": "C:\\Users\\rafae\\Desktop\\PROYECTOS\\OtaniAppWeb2\\negocio\\AccesoDatos.cs",
-              "RelativeToolTip": "negocio\\AccesoDatos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T05:03:23.759Z"
             }
           ]
         }

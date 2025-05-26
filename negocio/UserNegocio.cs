@@ -19,29 +19,23 @@ namespace negocio
             {
                 // Consulta SQL con JOIN para obtener información de las tablas relacionadas.
                 //datos.setearConsulta("SELECT Id, email, pass, nombre, apellido, urlImagenPerfil, admin FROM USERS");
-                datos.setearConsulta("select Codigo, Nombre, A.Descripcion , M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, M.Id IdMarca, C.Id IdCategoria, A.Id from UserS A, CATEGORIAS C, MARCAS M where C.Id = A.IdCategoria and M.Id = A.IdMarca");
+                datos.setearConsulta("SELECT Id, email, pass, nombre, apellido, urlImagenPerfil, admin FROM USERS");
+
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     User aux = new User();
                     aux.Id = (int)datos.Lector["Id"];
-                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Email = datos.Lector["email"] as string;
+                    aux.Pass = datos.Lector["pass"] as string;
                     aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Apellido = datos.Lector["apellido"] as string;
+                    
                     // Verificacion si la columna ImagenUrl es DBNull.
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
-                        aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                    // Uso de GetSqlMoney para obtener un SqlMoney y luego convertirlo a int.
-                    SqlMoney sqlPrecio = datos.Lector.GetSqlMoney(6);
-                    aux.Precio = (int)sqlPrecio;
-                    // Creación de objetos Marca y Categoria.
-                    aux.Marca = new Marca();
-                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["UrlImagenPerfil"] is DBNull))
+                        aux.UrlImagenPerfil = (string)datos.Lector["urlImagenPerfil"];
+                    aux.Admin = (bool)datos.Lector["admin"];
                     lista.Add(aux);
                 }
                 datos.cerrarConexion();
@@ -49,7 +43,7 @@ namespace negocio
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al listar usuarios", ex);
             }
             finally
             {
@@ -63,15 +57,18 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("INSERT INTO UserS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values ('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', @idMarca, @idCategoria , @imagenUrl," + nuevo.Precio + ")");
-                datos.setearParametro("@idMarca", nuevo.Marca.Id);
-                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
-                datos.setearParametro("@imagenUrl", nuevo.ImagenUrl);
+                datos.setearConsulta("INSERT INTO USERS (email, pass, nombre, apellido, urlImagenPerfil, admin) VALUES (@email, @pass, @nombre, @apellido, @img, @admin)");
+                datos.setearParametro("@email", nuevo.Email);
+                datos.setearParametro("@pass", nuevo.Pass);
+                datos.setearParametro("@nombre", nuevo.Nombre ?? (object)DBNull.Value);
+                datos.setearParametro("@apellido", nuevo.Apellido ?? (object)DBNull.Value);
+                datos.setearParametro("@img", nuevo.UrlImagenPerfil ?? (object)DBNull.Value);
+                datos.setearParametro("@admin", nuevo.Admin);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al agregar usuario", ex);
             }
             finally
             {
@@ -80,25 +77,24 @@ namespace negocio
         }
         //-------------------------------------------------------
         // Metodo para modificar un User existente.
-        public void modificar(User arti)
+        public void modificar(User nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update UserS set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, ImagenUrl = @img, Precio = @precio where Id = @id ");
-                datos.setearParametro("@codigo", arti.Codigo);
-                datos.setearParametro("@nombre", arti.Nombre);
-                datos.setearParametro("@desc", arti.Descripcion);
-                datos.setearParametro("@idMarca", arti.Marca.Id);
-                datos.setearParametro("@idCategoria", arti.Categoria.Id);
-                datos.setearParametro("@img", arti.ImagenUrl);
-                datos.setearParametro("@precio", arti.Precio);
-                datos.setearParametro("@id", arti.Id);
+                datos.setearConsulta("UPDATE USERS SET email = @email, pass = @pass, nombre = @nombre, apellido = @apellido, urlImagenPerfil = @img, admin = @admin WHERE Id = @id");
+                datos.setearParametro("@email", nuevo.Email);
+                datos.setearParametro("@pass", nuevo.Pass);
+                datos.setearParametro("@nombre", nuevo.Nombre ?? (object)DBNull.Value);
+                datos.setearParametro("@apellido", nuevo.Apellido ?? (object)DBNull.Value);
+                datos.setearParametro("@img", nuevo.UrlImagenPerfil ?? (object)DBNull.Value);
+                datos.setearParametro("@admin", nuevo.Admin);
+                datos.setearParametro("@id", nuevo.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al modificar usuario", ex);
             }
             finally
             {
@@ -109,105 +105,103 @@ namespace negocio
         // Metodo para elminar un User por su ID.
         public void eliminar(int id)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("delete from UserS where Id = @id");
+                
+                datos.setearConsulta("delete from users where Id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al eliminar usuario", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
         //-------------------------------------------------------
         // Método para filtrar los artículos según el criterio y filtro proporcionados.
-        public List<User> filtrar(string campo, string criterio, string filtro)
+        public List<User> filtrar(string email = null, string nombre = null, bool? admin = null)
         {
             List<User> lista = new List<User>();
             AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                string consulta = "select Codigo, Nombre, A.Descripcion , M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, M.Id IdMarca, C.Id IdCategoria, A.Id from UserS A, CATEGORIAS C, MARCAS M where C.Id = A.IdCategoria and M.Id = A.IdMarca and ";
-                // Agregar condiciones según el campo y criterio.               
-                if (campo == "Precio")
-                {
-                    switch (criterio)
-                    {
-                        case "Mayor a":
-                            consulta += "Precio > " + filtro;
-                            break;
-                        case "Menor a":
-                            consulta += "Precio < " + filtro;
-                            break;
-                        default:
-                            consulta += "Precio = " + filtro;
-                            break;
-                    }
-                }
-                else if (campo == "Nombre")
-                {
-                    switch (criterio)
-                    {
-                        case "Comienza con":
-                            consulta += "Nombre like '" + filtro + "%'";
-                            break;
-                        case "Termina con":
-                            consulta += "Nombre like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "Nombre like '%" + filtro + "%'";
-                            break;
-                    }
-                }
-                else
-                {
-                    switch (criterio)
-                    {
-                        case "Comienza con":
-                            consulta += "A.Descripcion like '" + filtro + "%'";
-                            break;
-                        case "Termina con":
-                            consulta += "A.Descripcion like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "A.Descripcion like '%" + filtro + "%'";
-                            break;
-                    }
-                }
+                string consulta = "SELECT Id, email, pass, nombre, apellido, urlImagenPerfil, admin FROM USERS WHERE 1=1";
+                if (!string.IsNullOrEmpty(email))
+                    consulta += " AND email LIKE @email";
+                if (!string.IsNullOrEmpty(nombre))
+                    consulta += " AND nombre LIKE @nombre";
+                if (admin.HasValue)
+                    consulta += " AND admin = @admin";
+
                 datos.setearConsulta(consulta);
+
+                if (!string.IsNullOrEmpty(email))
+                    datos.setearParametro("@email", $"%{email}%");
+                if (!string.IsNullOrEmpty(nombre))
+                    datos.setearParametro("@nombre", $"%{nombre}%");
+                if (admin.HasValue)
+                    datos.setearParametro("@admin", admin.Value);
+
                 datos.ejecutarLectura();
+
                 while (datos.Lector.Read())
                 {
-                    User aux = new User();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
-                        aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                    SqlMoney sqlPrecio = datos.Lector.GetSqlMoney(6);
-                    aux.Precio = (int)sqlPrecio;
-                    aux.Marca = new Marca();
-                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    lista.Add(aux);
+                    User user = new User();
+                    user.Id = (int)datos.Lector["Id"];
+                    user.Email = datos.Lector["email"] as string;
+                    user.Pass = datos.Lector["pass"] as string;
+                    user.Nombre = datos.Lector["nombre"] as string;
+                    user.Apellido = datos.Lector["apellido"] as string;
+                    user.UrlImagenPerfil = datos.Lector["urlImagenPerfil"] as string;
+                    user.Admin = (bool)datos.Lector["admin"];
+                    lista.Add(user);
                 }
                 return lista;
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al filtrar usuarios", ex);
             }
-
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
-
-
-
+        public bool Login(User user)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Id, email, pass, nombre, apellido, urlImagenPerfil, admin FROM USERS WHERE email = @email AND pass = @pass");
+                datos.setearParametro("@email", user.Email);
+                datos.setearParametro("@pass", user.Pass);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    user.Id = (int)datos.Lector["Id"];
+                    user.Nombre = datos.Lector["nombre"] as string;
+                    user.Apellido = datos.Lector["apellido"] as string;
+                    user.UrlImagenPerfil = datos.Lector["urlImagenPerfil"] as string;
+                    user.Admin = (bool)datos.Lector["admin"];
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al hacer login", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
