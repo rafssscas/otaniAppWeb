@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 namespace negocio
 {
     public class AccesoDatos
@@ -23,8 +24,8 @@ namespace negocio
         public AccesoDatos()
         {   
             //Definimos las instancias de SQL para la conexion.
-            string connectionString = "server=localhost; database=CATALOGO_WEB_DB; integrated security=true";
-            conexion = new SqlConnection(connectionString);
+            //string connectionString = "server=localhost; database=CATALOGO_WEB_DB; integrated security=true";
+            conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
             comando = new SqlCommand();
         }
         //-------------------------------------------------------
@@ -34,6 +35,14 @@ namespace negocio
             comando.CommandType = System.Data.CommandType.Text; 
             comando.CommandText = consulta;
         }
+
+        public void setearProcedimiento(string sp)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = sp;
+
+        }
+
         //-------------------------------------------------------
         //Metodo que ejecuta la consulta en la BD y abre una conexión.
         //Inicia la lectura de datos utilizando el objeto SqlCommand y 
@@ -68,6 +77,22 @@ namespace negocio
                 throw ex;
             }
         }
+
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         //-------------------------------------------------------
         // Método para establecer parámetros en el comando SQL.
         public void setearParametro(string nombre, object valor)

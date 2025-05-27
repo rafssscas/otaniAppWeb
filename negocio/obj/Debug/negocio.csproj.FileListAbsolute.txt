@@ -7,3 +7,7 @@ C:\Users\rafae\Desktop\MAX Programa2.0\TPFinalNivel2_Castro\negocio\obj\Debug\ne
 C:\Users\rafae\Desktop\MAX Programa2.0\TPFinalNivel2_Castro\negocio\obj\Debug\negocio.csproj.CopyComplete
 C:\Users\rafae\Desktop\MAX Programa2.0\TPFinalNivel2_Castro\negocio\obj\Debug\negocio.dll
 C:\Users\rafae\Desktop\MAX Programa2.0\TPFinalNivel2_Castro\negocio\obj\Debug\negocio.pdb
+C:\Users\rafae\Desktop\PROYECTOS\OtaniAppWeb2\negocio\obj\Debug\negocio.csproj.AssemblyReference.cache
+C:\Users\rafae\Desktop\PROYECTOS\OtaniAppWeb2\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Desktop\PROYECTOS\OtaniAppWeb2\negocio\obj\Debug\negocio.dll
+C:\Users\rafae\Desktop\PROYECTOS\OtaniAppWeb2\negocio\obj\Debug\negocio.pdb

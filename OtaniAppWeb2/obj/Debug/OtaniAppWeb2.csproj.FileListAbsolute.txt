@@ -1,0 +1,2 @@
+C:\Users\rafae\Desktop\PROYECTOS\OtaniAppWeb2\OtaniAppWeb2\obj\Debug\OtaniAppWeb2.csproj.AssemblyReference.cache
+C:\Users\rafae\Desktop\PROYECTOS\OtaniAppWeb2\OtaniAppWeb2\obj\Debug\OtaniAppWeb2.csproj.CoreCompileInputs.cache
